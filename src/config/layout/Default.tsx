@@ -19,6 +19,8 @@ import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
 import InfoIcon from '@mui/icons-material/Info';
 import HomeIcon from '@mui/icons-material/Home';
+import ContactSupportIcon from '@mui/icons-material/ContactSupport';
+import Footer from '../../components/Footer/Footer';
 
 const drawerWidth = 240;
 
@@ -90,76 +92,89 @@ const LayoutDefault: React.FC<LayoutDefaultPros> = ({
   };
 
   return (
-    <Box sx={{ display: 'flex' }}>
-      <CssBaseline />
-      <AppBar position="fixed" open={open}>
-        <Toolbar>
-          <IconButton
-            color="inherit"
-            aria-label="open drawer"
-            onClick={handleDrawerOpen}
-            edge="start"
-            sx={{ mr: 2, ...(open && { display: 'none' }) }}
-          >
-            <MenuIcon />
-          </IconButton>
-          <Typography variant="h6" noWrap component="div">
-            Material-UI ReactJS
-          </Typography>
-        </Toolbar>
-      </AppBar>
-      <Drawer
-        sx={{
-          width: drawerWidth,
-          flexShrink: 0,
-          '& .MuiDrawer-paper': {
+    <>
+      <Box sx={{ display: 'flex', minHeight: 'calc(100vh - 120px);' }}>
+        <CssBaseline />
+        <AppBar position="fixed" open={open}>
+          <Toolbar>
+            <IconButton
+              color="inherit"
+              aria-label="open drawer"
+              onClick={handleDrawerOpen}
+              edge="start"
+              sx={{ mr: 2, ...(open && { display: 'none' }) }}
+            >
+              <MenuIcon />
+            </IconButton>
+            <Typography variant="h6" noWrap component="div">
+              Material-UI ReactJS
+            </Typography>
+          </Toolbar>
+        </AppBar>
+        <Drawer
+          sx={{
             width: drawerWidth,
-            boxSizing: 'border-box',
-          },
-        }}
-        variant="persistent"
-        anchor="left"
-        open={open}
-      >
-        <DrawerHeader>
-          <IconButton onClick={handleDrawerClose}>
-            {theme.direction === 'ltr' ? (
-              <ChevronLeftIcon />
-            ) : (
-              <ChevronRightIcon />
-            )}
-          </IconButton>
-        </DrawerHeader>
-        <Divider />
-        <List>
-          <Link to="/">
-            <ListItem disablePadding>
-              <ListItemButton>
-                <ListItemIcon>
-                  <HomeIcon />
-                </ListItemIcon>
-                <ListItemText primary="Home" />
-              </ListItemButton>
-            </ListItem>
-          </Link>
-          <Link to="/about">
-            <ListItem disablePadding>
-              <ListItemButton>
-                <ListItemIcon>
-                  <InfoIcon />
-                </ListItemIcon>
-                <ListItemText primary="About" />
-              </ListItemButton>
-            </ListItem>
-          </Link>
-        </List>
-        <Divider />
-      </Drawer>
-      <Main open={open}>
-        <DrawerHeader />
-        <Component />
-      </Main>
-    </Box>
+            flexShrink: 0,
+            '& .MuiDrawer-paper': {
+              width: drawerWidth,
+              boxSizing: 'border-box',
+            },
+          }}
+          variant="persistent"
+          anchor="left"
+          open={open}
+        >
+          <DrawerHeader>
+            <IconButton onClick={handleDrawerClose}>
+              {theme.direction === 'ltr' ? (
+                <ChevronLeftIcon />
+              ) : (
+                <ChevronRightIcon />
+              )}
+            </IconButton>
+          </DrawerHeader>
+          <Divider />
+          <List>
+            <Link to="/">
+              <ListItem disablePadding>
+                <ListItemButton>
+                  <ListItemIcon>
+                    <HomeIcon />
+                  </ListItemIcon>
+                  <ListItemText primary="Home" />
+                </ListItemButton>
+              </ListItem>
+            </Link>
+            <Link to="/about">
+              <ListItem disablePadding>
+                <ListItemButton>
+                  <ListItemIcon>
+                    <InfoIcon />
+                  </ListItemIcon>
+                  <ListItemText primary="About" />
+                </ListItemButton>
+              </ListItem>
+            </Link>
+            <Link to="/faqs">
+              <ListItem disablePadding>
+                <ListItemButton>
+                  <ListItemIcon>
+                    <ContactSupportIcon />
+                  </ListItemIcon>
+                  <ListItemText primary="Faqs" />
+                </ListItemButton>
+              </ListItem>
+            </Link>
+          </List>
+          <Divider />
+        </Drawer>
+        <Main open={open}>
+          <DrawerHeader />
+          <Component />
+        </Main>
+      </Box>
+      <Footer />
+    </>
   );
 };
 
