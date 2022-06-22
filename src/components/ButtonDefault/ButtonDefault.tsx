@@ -1,5 +1,5 @@
-import React from "react";
-import { ButtonStyled } from "./Styleds";
+import React from 'react';
+import { ButtonStyled } from './Styleds';
 
 interface ButtonDefaultPros {
   name: string;

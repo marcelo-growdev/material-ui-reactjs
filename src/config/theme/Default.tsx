@@ -1,13 +1,13 @@
-import { createTheme } from "@mui/material/styles";
+import { createTheme } from '@mui/material/styles';
 
 const defaultTheme = createTheme({
   palette: {
-    mode: "light",
+    mode: 'light',
     primary: {
-      main: "#2b385b",
+      main: '#2b385b',
     },
     secondary: {
-      main: "#e16e0e",
+      main: '#e16e0e',
     },
   },
   //   components: {

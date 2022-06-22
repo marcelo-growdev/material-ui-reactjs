@@ -1,10 +1,8 @@
-import { Grid, Paper, Typography } from "@mui/material";
-import React from "react";
-import PaperDefault from "../components/PaperDefault/PaperDefault";
+import { Grid, Typography } from '@mui/material';
+import React from 'react';
+import PaperDefault from '../components/PaperDefault/PaperDefault';
 
 const Home: React.FC = () => {
-  const test = 0;
-
   const text = ` Lorem ipsum dolor sit amet consectetur
    adipisicing elit. Nam, rem, corporis recusandae fugit 
    sapiente aut consequuntur corrupti minima velit modi tempora 

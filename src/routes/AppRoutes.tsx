@@ -1,8 +1,8 @@
-import React from "react";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
-import LayoutDefault from "../config/layout/Default";
-import About from "../pages/About";
-import Home from "../pages/Home";
+import React from 'react';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import LayoutDefault from '../config/layout/Default';
+import About from '../pages/About';
+import Home from '../pages/Home';
 
 const AppRoutes: React.FC = () => {
   return (
