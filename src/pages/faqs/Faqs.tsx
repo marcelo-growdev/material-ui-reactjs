@@ -1,6 +1,6 @@
 import { Grid, Typography } from '@mui/material';
 import React from 'react';
-import DynamicAccordion from '../components/DynamicAccordion/DynamicAccordion';
+import DynamicAccordion from '../../components/DynamicAccordion/DynamicAccordion';
 
 const Faqs: React.FC = () => {
   const items = [

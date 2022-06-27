@@ -1,9 +1,9 @@
 import React from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import LayoutDefault from '../config/layout/Default';
-import About from '../pages/About';
-import Home from '../pages/Home';
-import Faqs from '../pages/Faqs';
+import About from '../pages/about/About';
+import Home from '../pages/home/Home';
+import Faqs from '../pages/faqs/Faqs';
 
 const AppRoutes: React.FC = () => {
   return (

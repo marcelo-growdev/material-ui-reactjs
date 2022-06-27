@@ -1,6 +1,7 @@
 import { Grid, Typography } from '@mui/material';
 import React from 'react';
-import PaperDefault from '../components/PaperDefault/PaperDefault';
+import PaperDefault from '../../components/PaperDefault/PaperDefault';
+import Banner from './components/Banner/Banner';
 
 const Home: React.FC = () => {
   const text = ` Lorem ipsum dolor sit amet consectetur
@@ -11,9 +12,7 @@ const Home: React.FC = () => {
   return (
     <Grid container spacing={2}>
       <Grid item xs={12}>
-        <Typography variant="h3" color="primary">
-          Home
-        </Typography>
+        <Banner size="h1" title="Minha aplicação" />
       </Grid>
       <Grid item xs={12} sm={4}>
         <PaperDefault elevation={3} title="Primeiro" body={text} />

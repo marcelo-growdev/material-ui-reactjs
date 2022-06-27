@@ -33,7 +33,7 @@ const Main = styled('main', { shouldForwardProp: (prop) => prop !== 'open' })<{
     easing: theme.transitions.easing.sharp,
     duration: theme.transitions.duration.leavingScreen,
   }),
-  marginLeft: `-${drawerWidth}px`,
+  // marginLeft: `-${drawerWidth}px`,
   ...(open && {
     transition: theme.transitions.create('margin', {
       easing: theme.transitions.easing.easeOut,
@@ -92,89 +92,94 @@ const LayoutDefault: React.FC<LayoutDefaultPros> = ({
   };
 
   return (
-    <>
-      <Box sx={{ display: 'flex', minHeight: 'calc(100vh - 120px);' }}>
-        <CssBaseline />
-        <AppBar position="fixed" open={open}>
-          <Toolbar>
-            <IconButton
-              color="inherit"
-              aria-label="open drawer"
-              onClick={handleDrawerOpen}
-              edge="start"
-              sx={{ mr: 2, ...(open && { display: 'none' }) }}
-            >
-              <MenuIcon />
-            </IconButton>
-            <Typography variant="h6" noWrap component="div">
-              Material-UI ReactJS
-            </Typography>
-          </Toolbar>
-        </AppBar>
-        <Drawer
-          sx={{
+    <Box
+      sx={{
+        minHeight: '100vh',
+        display: 'flex',
+        flexDirection: 'column',
+      }}
+    >
+      <CssBaseline />
+      <AppBar position="fixed" open={open}>
+        <Toolbar>
+          <IconButton
+            color="inherit"
+            aria-label="open drawer"
+            onClick={handleDrawerOpen}
+            edge="start"
+            sx={{ mr: 2, ...(open && { display: 'none' }) }}
+          >
+            <MenuIcon />
+          </IconButton>
+          <Typography variant="h6" noWrap component="div">
+            Material-UI ReactJS
+          </Typography>
+        </Toolbar>
+      </AppBar>
+      <Drawer
+        sx={{
+          width: drawerWidth,
+          flexShrink: 0,
+          '& .MuiDrawer-paper': {
             width: drawerWidth,
-            flexShrink: 0,
-            '& .MuiDrawer-paper': {
-              width: drawerWidth,
-              boxSizing: 'border-box',
-            },
-          }}
-          variant="persistent"
-          anchor="left"
-          open={open}
-        >
-          <DrawerHeader>
-            <IconButton onClick={handleDrawerClose}>
-              {theme.direction === 'ltr' ? (
-                <ChevronLeftIcon />
-              ) : (
-                <ChevronRightIcon />
-              )}
-            </IconButton>
-          </DrawerHeader>
-          <Divider />
-          <List>
-            <Link to="/">
-              <ListItem disablePadding>
-                <ListItemButton>
-                  <ListItemIcon>
-                    <HomeIcon />
-                  </ListItemIcon>
-                  <ListItemText primary="Home" />
-                </ListItemButton>
-              </ListItem>
-            </Link>
-            <Link to="/about">
-              <ListItem disablePadding>
-                <ListItemButton>
-                  <ListItemIcon>
-                    <InfoIcon />
-                  </ListItemIcon>
-                  <ListItemText primary="About" />
-                </ListItemButton>
-              </ListItem>
-            </Link>
-            <Link to="/faqs">
-              <ListItem disablePadding>
-                <ListItemButton>
-                  <ListItemIcon>
-                    <ContactSupportIcon />
-                  </ListItemIcon>
-                  <ListItemText primary="Faqs" />
-                </ListItemButton>
-              </ListItem>
-            </Link>
-          </List>
-          <Divider />
-        </Drawer>
-        <Main open={open}>
-          <DrawerHeader />
-          <Component />
-        </Main>
-      </Box>
+            boxSizing: 'border-box',
+          },
+        }}
+        variant="persistent"
+        anchor="left"
+        open={open}
+      >
+        <DrawerHeader>
+          <IconButton onClick={handleDrawerClose}>
+            {theme.direction === 'ltr' ? (
+              <ChevronLeftIcon />
+            ) : (
+              <ChevronRightIcon />
+            )}
+          </IconButton>
+        </DrawerHeader>
+        <Divider />
+        <List>
+          <Link to="/">
+            <ListItem disablePadding>
+              <ListItemButton>
+                <ListItemIcon>
+                  <HomeIcon />
+                </ListItemIcon>
+                <ListItemText primary="Home" />
+              </ListItemButton>
+            </ListItem>
+          </Link>
+          <Link to="/about">
+            <ListItem disablePadding>
+              <ListItemButton>
+                <ListItemIcon>
+                  <InfoIcon />
+                </ListItemIcon>
+                <ListItemText primary="About" />
+              </ListItemButton>
+            </ListItem>
+          </Link>
+          <Link to="/faqs">
+            <ListItem disablePadding>
+              <ListItemButton>
+                <ListItemIcon>
+                  <ContactSupportIcon />
+                </ListItemIcon>
+                <ListItemText primary="Faqs" />
+              </ListItemButton>
+            </ListItem>
+          </Link>
+        </List>
+        <Divider />
+      </Drawer>
+      <Main open={open}>
+        <DrawerHeader />
+        <Component />
+      </Main>
+
       <Footer />
-    </>
+    </Box>
   );
 };
 
