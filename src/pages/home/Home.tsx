@@ -1,9 +1,22 @@
 import { Grid, Typography } from '@mui/material';
-import React from 'react';
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import PaperDefault from '../../components/PaperDefault/PaperDefault';
+import { bookAdded, selectAll } from '../../store/modules/booksSlice';
 import Banner from './components/Banner/Banner';
 
 const Home: React.FC = () => {
+  const dispatch = useDispatch();
+  const booksRedux = useSelector(selectAll);
+
+  useEffect(() => {
+    dispatch(bookAdded({ bookId: 1, title: 'Meu primeiro livro' }));
+  }, []);
+
+  useEffect(() => {
+    console.log(booksRedux);
+  }, [booksRedux]);
+
   const text = ` Lorem ipsum dolor sit amet consectetur
    adipisicing elit. Nam, rem, corporis recusandae fugit 
    sapiente aut consequuntur corrupti minima velit modi tempora 
